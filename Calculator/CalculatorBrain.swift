@@ -53,6 +53,8 @@ struct CalculatorBrain {
       case .equals:
         performPendingBinaryOperation()
       }
+    } else {
+      print("wrong operation symbol")
     }
   }
   

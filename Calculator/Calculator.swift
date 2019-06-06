@@ -9,7 +9,11 @@
 import SwiftUI
 
 struct Calculator: View {
-  let data = [["+", "-", "÷", "×"],
+  @State private var userIsInTheMiddleOfTyping = false
+  @State private var display = "0"
+  @State private var brain = CalculatorBrain()
+
+  let data = [["+", "−", "÷", "×"],
               ["π", "7", "8", "9"],
               ["√", "4", "5", "6"],
               ["cos", "1", "2", "3"],
@@ -21,8 +25,8 @@ struct Calculator: View {
       HStack {
         Spacer()
         
-        Text("0")
-          .color(Color(red: 231 / 255.0, green: 76 / 255.0, blue: 60 / 255.0))
+        Text(display)
+          .foregroundColor(Color(red: 231 / 255.0, green: 76 / 255.0, blue: 60 / 255.0))
           .font(.largeTitle)
           .frame(height: 50)
         }
@@ -51,21 +55,35 @@ struct Calculator: View {
   }
   
   private func touchAction(_ symbol: String) {
-    if let digit = Int(symbol) {
-      touchDigit(digit)
+    if Int(symbol) != nil {
+      touchDigit(symbol)
     } else {
       performOperation(symbol)
     }
   }
   
-  private func touchDigit(_ digit: Int) {
+  private func touchDigit(_ digit: String) {
     print(#function)
-    print(digit)
+    if userIsInTheMiddleOfTyping {
+      display += digit
+    } else {
+      display = digit
+      userIsInTheMiddleOfTyping = true
+    }
   }
   
   private func performOperation(_ symbol: String) {
     print(#function)
-    print(symbol)
+    if userIsInTheMiddleOfTyping {
+      brain.setOperand(Double(display)!)
+      userIsInTheMiddleOfTyping = false
+    }
+    
+    brain.performOperation(symbol)
+    
+    if let result = brain.result {
+      display = String(result)
+    }
   }
 }
 
