@@ -23,7 +23,7 @@ struct Calculator: View {
         
         Text("0")
           .color(Color(red: 231 / 255.0, green: 76 / 255.0, blue: 60 / 255.0))
-          .font(.title)
+          .font(.largeTitle)
           .frame(height: 50)
         }
         .padding(margin)
