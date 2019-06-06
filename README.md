@@ -1,6 +1,6 @@
 # Calculator
 
-swiftUI 实现的计算器
+SwiftUI 实现的计算器
 
 <img width="25%" height="25%" src="screenShots/1.png"/>
 
