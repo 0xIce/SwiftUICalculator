@@ -1,3 +1,3 @@
 # Calculator
 
-![](screenShots/1.png){:height="50%" width="50%"}
+<img width="50%" height="50%" src="screenShots/1.png"/>
