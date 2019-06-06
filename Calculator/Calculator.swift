@@ -55,7 +55,7 @@ struct Calculator: View {
   }
   
   private func touchAction(_ symbol: String) {
-    if Int(symbol) != nil {
+    if Int(symbol) != nil || symbol == "." {
       touchDigit(symbol)
     } else {
       performOperation(symbol)
