@@ -1,6 +1,6 @@
 # SwiftUICalculator
 
-SwiftUI 实现的计算器
+A calculator app using SwiftUI which is introduced in WWDC19
 
 <img width="25%" height="25%" src="screenShots/1.png"/> <img width="50%" height="50%" src="screenShots/2.png"/>
 
